@@ -23,6 +23,9 @@
         {#each searchResults as result}
           {@const candidate = candidateList[result.id]}
           <li>
+            <code>
+              {candidate.interviewRefNo}
+            </code>
             {candidate.firstName}
             {candidate.lastName}
             ({candidate.major})
@@ -36,8 +39,12 @@
     <ul>
       {#each candidateList as candidate}
         <li>
+          <code>
+            {candidate.interviewRefNo}
+          </code>
           {candidate.firstName}
           {candidate.lastName}
+          ({candidate.major})
         </li>
       {/each}
     </ul>
