@@ -28,7 +28,7 @@
   placeholder="Search..."
 />
 
-<div class="flex flex-row gap-2">
+<div class="flex flex-row flex-wrap gap-2">
   {#each majors as major}
     <div data-major={major}>
       <input

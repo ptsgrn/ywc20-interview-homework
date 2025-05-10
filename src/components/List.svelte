@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getCandidateList, searchCandidate } from "../lib/data";
   import Candidate from "./Candidate.svelte";
-  import type { Candidate as TCandidate } from "../lib/types";
+  import type { MajorKey, Candidate as TCandidate } from "../lib/types";
   import Filter from "./Filter.svelte";
   let {
     searchTerm = "",
@@ -9,7 +9,7 @@
     searchTerm: string;
   } = $props();
 
-  let showOnlyMajor = $state([]);
+  let showOnlyMajor: MajorKey[] = $state([]);
 
   function filterSelectedMajors(
     candidatesList: TCandidate[],
