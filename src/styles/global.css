@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* https://tailwindcss.com/docs/colors#customizing-your-colors */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --default-font-family: "Rubik Variable", sans-serif;
@@ -194,9 +194,45 @@
   --color-dark-bl-2: var(--color-blue-600);
   --color-dark-pu-2: var(--color-purple-600);
   --color-dark-ma-2: var(--color-magenta-600);
+
+  --color-w-border: var(--color-base-300);
+  --color-w-border-2: var(--color-base-200);
+  --volor-w-bg: var(--color-base-200);
 }
 
 body {
   background-color: var(--color-light-bg);
   color: var(--color-light-tx)
+}
+
+[data-major=design],
+[data-major=web_design] {
+  --w-border: var(--color-red-500);
+  --w-border-2: var(--color-red-400);
+  --w-bg: var(--color-red-400);
+  --w-text: var(--color-red-700);
+}
+
+[data-major=content],
+[data-major=web_content] {
+  --w-border: var(--color-magenta-500);
+  --w-border-2: var(--color-magenta-400);
+  --w-bg: var(--color-magenta-400);
+  --w-text: var(--color-magenta-700);
+}
+
+[data-major=programming],
+[data-major=web_programming] {
+  --w-border: var(--color-green-500);
+  --w-border-2: var(--color-green-400);
+  --w-bg: var(--color-green-400);
+  --w-text: var(--color-green-700);
+}
+
+[data-major=marketing],
+[data-major=web_marketing] {
+  --w-border: var(--color-blue-500);
+  --w-border-2: var(--color-blue-400);
+  --w-bg: var(--color-blue-400);
+  --w-text: var(--color-blue-700);
 }

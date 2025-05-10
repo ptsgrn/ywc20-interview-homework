@@ -27,28 +27,21 @@
 
 <div
   data-major={candidate.major}
-  class="flex flex-row gap-3 shadow-sm border-2 border-gray-700/30 rounded-lg p-2 data-[major=web\_design]:border-red-400/50 group data-[major=web\_design]:bg-red-400/10 data-[major=web\_marketing]:border-blue-400/50 data-[major=web\_marketing]:bg-blue-400/10 data-[major=web\_programming]:border-green-400/50 data-[major=web\_programming]:bg-green-400/10 data-[major=web\_content]:border-magenta-400/50 data-[major=web\_content]:bg-magenta-400/10"
+  class="flex flex-row gap-3 shadow-sm border-2 rounded-xl p-1.5 border-(--w-border)/60 bg-(--w-bg)/10"
 >
   <div
-    class="icon size-12 bg-light-bg shrink-0 flex items-center justify-center text-lg border-2 rounded-sm transition-transform duration-100 ease-in-out shadow-inner select-none {candidate.major ===
-    'web_design'
-      ? 'border-red-400/40'
-      : ''} {candidate.major === 'web_content'
-      ? 'border-magenta-400/40'
-      : ''} {candidate.major === 'web_marketing'
-      ? 'border-blue-400/40'
-      : ''} {candidate.major === 'web_programming'
-      ? 'border-green-400/40'
-      : ''}"
+    class="size-12 text-shadow-xs bg-light-bg/90 border-(--w-border)/30 shrink-0 flex items-center justify-center text-lg border-2 rounded-md transition-transform duration-100 ease-in-out shadow-inner select-none"
   >
     {emojis[candidate.major]}
   </div>
-  <div class="flex flex-col items-start justify-start w-full">
+  <div
+    class="flex flex-col items-start justify-start w-full text-(--w-text) text-shadow-2xs"
+  >
     <div>
       {candidate.firstName}
       {candidate.lastName}
     </div>
-    <div class="text-sm text-gray-500">
+    <div class="text-sm text-gray-700/70">
       <code>
         #{candidate.interviewRefNo}
       </code>

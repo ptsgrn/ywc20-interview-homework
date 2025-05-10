@@ -5,9 +5,11 @@
   let {
     showOnlyMajor = $bindable([]),
     majors = $bindable([]),
+    searchTerm = $bindable(""),
   }: {
     showOnlyMajor: string[];
     majors: MajorKey[];
+    searchTerm: string;
   } = $props();
 
   function toggleMajor(major: string) {
@@ -19,9 +21,16 @@
   }
 </script>
 
+<input
+  type="text"
+  class="border-2 border-base-200 max-w-80 bg-light-bg-2 rounded p-2 my-2"
+  bind:value={searchTerm}
+  placeholder="Search..."
+/>
+
 <div class="flex flex-row gap-2">
   {#each majors as major}
-    <div>
+    <div data-major={major}>
       <input
         hidden
         name={major}
@@ -33,28 +42,7 @@
       />
       <label
         for={`${uid}-${major}`}
-        class="flex select-none border-2 items-center cursor-pointer active:scale-95 transition-transform duration-75 text-base-600 border-base-500 px-3 rounded-2xl border-dashed peer-checked:border-solid
-        {showOnlyMajor.includes(major) && major === 'design'
-          ? 'bg-red-500/10 border-red-500/50 text-red-500'
-          : major === 'design'
-            ? 'bg-red-50/40 border-red-300 text-red-500/50'
-            : ''}
-        {showOnlyMajor.includes(major) && major === 'content'
-          ? 'bg-magenta-500/10 border-magenta-500/50 text-magenta-500'
-          : 'content' === major
-            ? 'bg-magenta-50/40 border-magenta-300 text-magenta-500/50'
-            : ''}
-        {showOnlyMajor.includes(major) && major === 'marketing'
-          ? 'bg-blue-500/10 border-blue-500/50 text-blue-500'
-          : 'marketing' === major
-            ? 'bg-blue-50/40 border-blue-300 text-blue-500/50'
-            : ''}
-        {showOnlyMajor.includes(major) && major === 'programming'
-          ? 'bg-green-500/10 border-green-500/50 text-green-500'
-          : 'programming' === major
-            ? 'bg-green-50/40 border-green-300 text-green-500/50'
-            : ''}
-        "
+        class="flex select-none border-2 items-center cursor-pointer active:scale-95 transition-transform duration-75 peer-checked:text-(--w-text) bg-light-ui/30 peer-checked:bg-(--w-bg)/5 text-light-tx-2 text-shadow-2xs text-shadow-light-tx-3/30 px-3 rounded-2xl border-dashed peer-checked:border-solid border-light-ui-3 peer-checked:border-(--w-border)/60 peer-checked:shadow-inner peer-checked:shadow-light-ui/30 peer-checked:shadow-offset-0 peer-checked:shadow-radius-0 peer-checked:shadow-color-light-ui/30"
       >
         <span class="label-text"
           >{major.at(0)?.toUpperCase() + major.slice(1)}</span

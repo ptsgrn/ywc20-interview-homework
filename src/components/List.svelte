@@ -38,13 +38,7 @@
       <p>Loading...</p>
     {:then { candidateList, majors }}
       <div class="flex flex-col gap-0 my-4">
-        <input
-          type="text"
-          class="border-2 border-base-200 max-w-80 rounded p-2 my-2"
-          bind:value={searchTerm}
-          placeholder="Search..."
-        />
-        <Filter bind:showOnlyMajor {majors} />
+        <Filter bind:showOnlyMajor {majors} bind:searchTerm />
       </div>
       {#if searchTerm}
         {#await searchCandidate(searchTerm, candidateList, showOnlyMajor)}
