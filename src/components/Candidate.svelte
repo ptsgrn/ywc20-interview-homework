@@ -35,13 +35,13 @@
     {emojis[candidate.major]}
   </div>
   <div
-    class="flex flex-col items-start justify-start w-full text-(--w-text) text-shadow-2xs"
+    class="flex flex-col text-shadow-white/70 items-start justify-start w-full text-(--w-text) text-shadow-2xs"
   >
     <div>
       {candidate.firstName}
       {candidate.lastName}
     </div>
-    <div class="text-sm text-gray-700/70">
+    <div class="text-xs text-gray-700/70">
       <code>
         #{candidate.interviewRefNo}
       </code>
