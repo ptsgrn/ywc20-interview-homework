@@ -3,6 +3,7 @@
   import Candidate from "./Candidate.svelte";
   import type { MajorKey, Candidate as TCandidate } from "../lib/types";
   import Filter from "./Filter.svelte";
+  import Spinner from "./Spinner.svelte";
   let {
     searchTerm = "",
   }: {
@@ -35,14 +36,14 @@
   </div>
   <div>
     {#await getCandidateList([])}
-      <p>Loading...</p>
+      <Spinner text="Loading..." />
     {:then { candidateList, majors }}
       <div class="flex flex-col gap-0 my-4">
         <Filter bind:showOnlyMajor {majors} bind:searchTerm />
       </div>
       {#if searchTerm}
         {#await searchCandidate(searchTerm, candidateList, showOnlyMajor)}
-          <p>Loading candidate...</p>
+          <Spinner text="Loading candidate..." />
         {:then searchResults}
           <div
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
